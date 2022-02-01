@@ -10,6 +10,7 @@ async function startProgram(){
 	await goToBlueLight();
 	await goSound1();
 	await goRedLight();
+	await greenLight();
 }
 
 async function goToBlueLight(){
@@ -27,16 +28,26 @@ async function goSound1(){
 async function goRedLight()
 {
 	await delay(0.5);
-<<<<<<< HEAD
 	await roll(180, 50, 1.5);
 	await roll(220, 50, 1.3);
 	await delay(.5);
 	await roll(130, 50, .9);
-=======
-	await roll(180, 50, 1.2);
-	await roll(220, 50, 1.5);
-	await roll(130, 50, 0.75);
->>>>>>> HauntedMansion
 	await setMainLed({ r: 255, g: 0, b: 0 });
+	await delay(0.5)
 	
+}
+
+async function greenLight()
+{
+	await roll(40, 50, 1.3);
+	await Sound.Mechanical.Alarm.play(false);
+	await delay(0.5);
+	await roll(130, 50, 1);
+	await delay(0.5);
+	await roll(185, 50, .9);
+	await roll(95, 50, .6);
+	await delay(0.5);
+	await setMainLed({ r: 0, g: 255, b: 0 });	
+	
+}
 }
